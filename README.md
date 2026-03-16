@@ -3,6 +3,8 @@
 This project demonstrates a **distributed text analytics pipeline built with Hadoop MapReduce and Java**.  
 The system processes a corpus of Shakespeare plays stored in **HDFS (Hadoop Distributed File System)** and computes **TF-IDF scores** to identify distinctive vocabulary within each play.
 
+Technologies: Java, Hadoop, MapReduce, HDFS
+
 The pipeline executes across multiple MapReduce jobs to demonstrate how large-scale text data can be processed in a distributed environment.
 
 ---
