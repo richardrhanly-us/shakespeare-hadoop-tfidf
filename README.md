@@ -1,7 +1,7 @@
 # Distributed Text Analytics with Hadoop MapReduce
 
-This project demonstrates a **distributed text analytics pipeline built with Hadoop MapReduce and Java**.  
-The system processes a corpus of Shakespeare plays stored in **HDFS (Hadoop Distributed File System)** and computes **TF-IDF scores** to identify distinctive vocabulary within each play.
+This project demonstrates a distributed text analytics pipeline built with Hadoop MapReduce and Java.  
+The system processes a corpus of Shakespeare plays stored in HDFS (Hadoop Distributed File System) and computes TF-IDF scores to identify distinctive vocabulary within each play.
 
 Technologies: Java, Hadoop, MapReduce, HDFS
 
@@ -52,7 +52,7 @@ Hamlet.txt@ghost 65
 Hamlet.txt@king 120
 ```
 
-This stage measures **how important a word is within a single document**.
+This stage measures how important a word is within a single document.
 
 ---
 
@@ -73,7 +73,7 @@ ghost 1
 king 3
 ```
 
-This stage measures **how common a word is across the entire corpus**.
+This stage measures how common a word is across the entire corpus.
 
 ---
 
@@ -93,7 +93,7 @@ Where:
 - DF = number of documents containing the term  
 - N = total number of documents in the corpus  
 
-The system outputs the **top 50 most distinctive terms per play**.
+The system outputs the top 50 most distinctive terms per play.
 
 ---
 
@@ -117,9 +117,9 @@ Hamlet.txt -> ophelia     94.48
 
 ### What these results mean
 
-- **hamlet** receives a very high TF-IDF score because it appears often in *Hamlet* and is strongly associated with that play.
-- **horatio**, **claudius**, and **ophelia** also score highly because they are important character names that occur frequently in *Hamlet* but rarely in the other plays.
-- A common word such as **the** or **and** would receive a much lower TF-IDF value because it appears in all documents and is not distinctive.
+- hamlet receives a very high TF-IDF score because it appears often in *Hamlet* and is strongly associated with that play.
+- horatio, claudius, and ophelia also score highly because they are important character names that occur frequently in *Hamlet* but rarely in the other plays.
+- A common word such as the or and would receive a much lower TF-IDF value because it appears in all documents and is not distinctive.
 
 In other words, the final output helps identify the vocabulary that best characterizes each play.
 
