@@ -326,3 +326,120 @@ This project demonstrates:
 ## Author
 
 Richard Hanly
+
+
+# Comparative Analysis Report
+
+## Problem Chosen
+
+The problem I chose was text processing and classification. Specifically, I made a rule-based support ticket classifier
+that reads short help-desk or technology support tickets and assigns them to a specific category based on mathing keywords.
+I chose this problem because it seemed like an appropriate way to illustrate how the chosen languages, Go and Prolog, each 
+process data in different ways.
+
+## Why These Languages Were Chosen
+
+I chose the languages Go and Prolog because they represent two very different styles of programming, and make for
+a good demonstration of the differences between each language.
+
+Go was picked because it is a modern programming style that uses a procedural control flow, and is very practicle in most use cases. Go is
+statically typed, which means that when variables are used they must have clear types before the program will run.
+Go works well for this assignment because the program needs to read an input file, store ticket information, loop through the tickets, 
+compare words to keyword lists, and print a report. These are all tasks that fit Go’s strengths because Go makes file 
+handling, loops, structs, maps, slices, and functions very straightforward.
+
+Prolog was chosen because it looks at the same problem in a very different way than Go. Prolog uses a relational model and control 
+flow that establishes facts and rules, in contrast to Go's procedural approach. The ticket classifier is a great use case for Prolog 
+as we can set the ticket categories as facts, and the classifications can be presented as rules that decide what category a
+ticket belongs to. The Prolog control flow leans heavily on recursive predicates and rule matching to infer the category.
+
+
+
+## Data Representation
+
+The two implementations represent the same support ticket classification problem, but they store and organize the data in different ways.
+
+###Go
+In the Go version, each support ticket is represented with a `Ticket` struct. The struct has fields for the ticket ID and then the ticket description. 
+This makes the data organized and predictable because each ticket has the same structure.
+
+```go
+type Ticket struct {
+    ID          string
+    Description string
+}
+```
+The Go version also uses a second struct called ClassificationResult to store the result after a ticket has been analyzed.
+
+```go
+type ClassificationResult struct {
+    TicketID string
+    Category string
+    Matches  []string
+}
+```
+
+This structure stores the ticket ID, selected category, and the list of keywords that matches the ticket description.
+This makes it a good fit for Go because it's data is statically typed. 
+
+The category rules in Go are stored in a map. The map connects each category name to a slice of keywords.
+
+categoryKeywords := map[string][]string{
+    "printing": {"printer", "print", "queue", "paper", "jam", "jammed"},
+    "network/wifi": {"wifi", "internet", "network", "connection"},
+}
+
+This means the category name is the key, and the list of words for that category is the value.
+
+### Prolog
+
+In the Prolog version, the data is represented more like facts and rules. Instead of using structs and maps, the category 
+keywords are written as facts using the category_keywords/2 predicate.
+
+category_keywords(printing,
+    [printer, print, queue, paper, jam, jammed, toner, release]).
+
+category_keywords('network/wifi',
+    [wifi, internet, network, connection, router, wireless, connect]).
+
+Each fact says that a category is connected to a list of keywords. This is a natural fit for Prolog because Prolog programs 
+are built around facts, predicates, and relationships.
+
+Tickets in the Prolog version are represented as compound terms:
+
+ticket(ID, Description)
+
+This is similar in purpose to the Go ClassificationResult struct, but it is written in the logic based style of prolog.
+
+The main difference is that Go represents it's data through typed structures, maps, and slices, while Prolog represents data 
+through facts, rule, lists, and logical terms. Go’s representation feels a bit more like building containers for data before processing it. 
+Meanwhile, Prolog’s representation feels more like describing relationships that the program has to make sense of.
+
+## How Each Implementation Thinks
+
+This section will compare Go's step-by-step processing with Prolog's rule-based inference.
+
+## Typing and Correctness
+
+This section will compare Go's static typing with Prolog's dynamic logic-based structure.
+
+## Main Mechanism of Computation
+
+This section will discuss loops, helper functions, recursion, predicates, and rule matching.
+
+## Difficulty and Clarity
+
+This section will compare which implementation was easier to write, debug, and understand.
+
+## Strengths and Weaknesses
+
+This section will discuss the strengths and weaknesses of Go and Prolog for this problem.
+
+## Final Judgment
+
+This section will explain which language was better suited to this project and why.
+
+## AI Usage Statement
+
+This section will explain how AI was used, where it was not good enough, and what was learned.
+
